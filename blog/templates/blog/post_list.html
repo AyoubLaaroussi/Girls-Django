@@ -3,11 +3,16 @@
 
 {% block content %}
 	{% for post in posts %}
-		<div>
-    		<p>Publicacion: {{ post.published_date }}</p>
-    		<h1><a href="{% url 'blog.views.post_detail' pk=post.pk %}">POST: {{ post.title }}</a></h1>
-    		<p>Texto: {{ post.text }}</p>
-    		<hr>
+		<div class="row">
+			<div class="col-md-4 col-xs-12">
+					<h1><a href="{% url 'post_detail' pk=post.pk %}">POST: {{ post.title }}</a></h1>
+					<div class="date">
+					<p>Publicacion: {{ post.published_date }}</p>
+					</div>
+			</div>
+			<div class="col-md-8 col-xs-12">
+				<p>Texto: {{ post.text }}</p>
+			</div>
     	</div>
     {% endfor %}
 {% endblock content %}
